@@ -1,0 +1,22 @@
+query AuthUser {
+	authUser {
+		...UserFragment
+	}
+}
+
+query AllAuthUsers($first: IntType = 500, $skip: IntType = 0) {
+	allAuthUsers(first: $first, skip: $skip) {
+		...UserFragment
+	}
+	_allAuthUsersMeta {
+		count
+	}
+}
+
+fragment UserFragment on AuthUserRecord {
+	email
+}
+
+fragment UserLightFragment on AuthUserRecord {
+	email
+}

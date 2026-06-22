@@ -1,0 +1,17 @@
+query Start($locale: SiteLocale) {
+	start(locale: $locale) {
+		...StartFragment
+	}
+}
+
+fragment StartFragment on StartRecord {
+	headline
+	content {
+		blocks
+		links
+		value
+	}
+	posts {
+		...PostLightFragment
+	}
+}

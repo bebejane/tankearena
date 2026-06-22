@@ -1,0 +1,166 @@
+@use "fonts";
+@use "mediaqueries" as *;
+
+:root {
+  --black: #161616;
+  --white: #fcfcfc;
+  --red: #bf0000;
+  --outer-margin: 1em;
+  --navbar-height: calc(1em + calc(2 * var(--outer-margin)));
+  --background: var(--white);
+  --foreground: var(--black);
+
+  --body-font: Arial, Helvetica, Sans-Serif;
+  --headline-font: Arial, Helvetica, Sans-Serif;
+
+  @include mq($from: tablet) {
+  }
+
+  @include mq($until: tablet) {
+  }
+}
+
+body {
+  position: relative;
+  width: 100%;
+  color: var(--foreground);
+  font-size: 100%;
+  font-family: var(--body-font);
+  line-height: 1em;
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "liga", "kern";
+
+  @include mq($from: desktop) {
+  }
+}
+
+.root {
+  isolation: isolate;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+main {
+  display: block;
+  padding: 0;
+}
+
+article {
+  min-height: 100vh;
+  padding: var(--outer-margin);
+}
+::-webkit-scrollbar {
+  background: var(--beige-light);
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+article p a {
+  text-decoration: underline 1px !important;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+
+  &:hover {
+    color: var(--beige-dark);
+  }
+}
+
+.intro {
+  margin-top: -0.2em;
+  margin-bottom: var(--small-space);
+}
+
+button {
+  color: var(--foreground);
+  border: 0;
+
+  @include mq($from: tablet) {
+  }
+
+  &.back {
+    @include mq($from: tablet) {
+    }
+  }
+}
+
+figcaption {
+  margin-bottom: 1em;
+  font-size: 0.7em;
+  line-height: 1;
+}
+
+hr {
+}
+
+input,
+textarea,
+select {
+}
+
+select {
+  color: var(--black);
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-position-x: calc(100% - 1em);
+  background-position-y: center;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.page-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+}
+
+button {
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  background-color: rgb(226, 226, 226);
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}

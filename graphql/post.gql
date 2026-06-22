@@ -1,0 +1,105 @@
+query Post($slug: String, $locale: SiteLocale) {
+	post(locale: $locale, filter: { slug: { eq: $slug } }) {
+		...PostFragment
+	}
+}
+
+query AllPosts($locale: SiteLocale, $first: IntType = 500, $skip: IntType = 0) {
+	allPosts(locale: $locale, first: $first, skip: $skip, orderBy: [_createdAt_DESC]) {
+		...PostFragment
+	}
+	_allPostsMeta {
+		count
+	}
+}
+
+fragment PostFragment on PostRecord {
+	id
+	image {
+		...ImageFragment
+	}
+	intro
+	slug
+	slugs: _allSlugLocales {
+		locale
+		value
+	}
+	title
+	color {
+		_editingUrl
+		color {
+			hex
+		}
+	}
+	background {
+		_editingUrl
+		color {
+			hex
+		}
+	}
+	content {
+		__typename
+		blocks {
+			__typename
+			... on SpaceRecord {
+				_editingUrl
+				id
+				height
+			}
+			... on LinkImageRecord {
+				_editingUrl
+				id
+				name
+				url
+				image {
+					...ImageFragment
+				}
+			}
+			... on ListRecord {
+				_editingUrl
+				id
+				title
+				items {
+					__typename
+					_editingUrl
+					... on ListItemRecord {
+						_editingUrl
+						id
+						label
+						value
+						content {
+							blocks
+							links
+							value
+						}
+					}
+				}
+			}
+		}
+		value
+		links
+	}
+	author {
+		name
+	}
+	_updatedAt
+}
+
+fragment PostLightFragment on PostRecord {
+	id
+	image {
+		...ImageFragment
+	}
+	intro
+	slug
+	title
+	author {
+		name
+	}
+	color {
+		color {
+			hex
+		}
+	}
+	_updatedAt
+}
