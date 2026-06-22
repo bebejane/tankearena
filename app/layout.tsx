@@ -1,15 +1,77 @@
-import "@/styles/index.scss";
-import s from "./layout.module.scss";
-import { NextIntlClientProvider } from "next-intl";
-import { LocaleSwitcher } from "@/components/nav/LocaleSwitcher";
-import { DraftModeContentLink } from "next-dato-utils/components";
-
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
-      <body id="root" className="root">
-        <main className={s.main}>{children}</main>
-        <DraftModeContentLink />
+    <html lang="sv">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TankeArena för Kultur</title>
+        <link
+          rel="icon"
+          type="image/png"
+          href="icon/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="icon/favicon.svg" />
+        <link rel="shortcut icon" href="icon/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="icon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="icon/site.webmanifest" />
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <main className="page">
+          <div className="grid">
+            <div className="illustration">
+              <img src="images/illustration.png" alt="" />
+            </div>
+
+            <div className="logo">
+              <img
+                className="logo-full"
+                src="images/logo_rgb.svg"
+                alt="TankeArena för Kultur"
+              />
+              <img className="logo-symbol" src="images/symbol_rgb.svg" alt="" />
+            </div>
+
+            <div className="text">
+              <p>
+                TAK är en ny tankearena för kultur som ska stärka kulturens roll
+                i samhället. Verksamheten är under uppbyggnad och ligger hos{" "}
+                <a
+                  href="https://www.iffs.se/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <em>Institutet för framtidsstudier</em>
+                </a>{" "}
+                i Stockholm.
+              </p>
+              <p>
+                TAK är initierat och drivs av Magdalena Malm. För mer
+                information om oss{" "}
+                <a
+                  href="mailto:mm@tankearenaforkultur.se"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <em>skicka ett mail</em>
+                </a>{" "}
+                eller följ oss på{" "}
+                <a
+                  href="https://www.instagram.com/tankearenaforkultur/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <em>Instagram</em>
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </main>
       </body>
     </html>
   );
