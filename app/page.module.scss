@@ -105,6 +105,8 @@
   }
 
   @include bp.breakpoint(mobile, max) {
+    padding-top: 1rem;
+
     .aboutImageColumn {
       display: none;
     }
@@ -136,6 +138,11 @@
 
   @include bp.breakpoint(mobile, max) {
     grid-template-columns: 1fr;
+    margin-top: 1rem;
+
+    .contactContent {
+      text-align: center;
+    }
 
     h2,
     .imageColumn,

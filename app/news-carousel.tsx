@@ -87,7 +87,7 @@ export default function NewsCarousel({ news, today }: NewsCarouselProps) {
       </div>
       <div
         ref={scrollerRef}
-        className={`${styles.reports} ${canScroll ? styles.scrollable : ""}`}
+        className={`${styles.reports} ${news.length > 1 ? styles.scrollable : ""}`}
         id="nyheter-lista"
       >
         {news.map((item, index) => (

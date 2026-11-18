@@ -28,6 +28,10 @@ h3 {
   margin-top: 1em;
   margin-bottom: 0.5em;
   font-size: 1.5rem;
+
+  @include bp.breakpoint(mobile, max) {
+    font-size: 1.25rem;
+  }
 }
 
 .small {

@@ -64,24 +64,24 @@
 
   @include bp.breakpoint(mobile, max) {
     gap: spacing.$section-gap-mobile;
-    grid-auto-columns: auto;
-    grid-auto-flow: row;
-    grid-template-columns: 1fr;
+    grid-auto-columns: 100%;
   }
 }
 
 .scrollable {
-  @include bp.breakpoint(desktop) {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-    > * {
-      scroll-snap-align: start;
-    }
+  > * {
+    scroll-snap-align: start;
+  }
+
+  @include bp.breakpoint(mobile, max) {
+    grid-auto-columns: calc(100% - #{spacing.$section-gap-mobile} - 2rem);
   }
 }
