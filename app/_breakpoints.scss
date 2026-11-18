@@ -1,0 +1,47 @@
+@use "sass:map";
+
+$breakpoints: (
+  mobile: 700px,
+  compact-header: 1100px,
+  desktop: 701px,
+  fluid: 1280px,
+  large-desktop: 1440px,
+  content-max: 1700px,
+);
+
+@function width($size) {
+  @if not map.has-key($breakpoints, $size) {
+    @error "Unknown breakpoint `#{$size}`.";
+  }
+
+  @return map.get($breakpoints, $size);
+}
+
+// Insets content to the gutter, and centers that column once the viewport
+// passes the content max. The element itself stays full width.
+@mixin content-padding {
+  padding-inline: max(
+    var(--page-gutter),
+    calc((100% - #{width(content-max)}) / 2 + var(--page-gutter))
+  );
+}
+
+@mixin breakpoint($size, $direction: min) {
+  @if not map.has-key($breakpoints, $size) {
+    @error "Unknown breakpoint `#{$size}`.";
+  }
+
+  $width: map.get($breakpoints, $size);
+
+  @if $direction == min {
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else if $direction == max {
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint direction must be `min` or `max`.";
+  }
+}

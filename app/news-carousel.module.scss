@@ -1,0 +1,81 @@
+@use "./breakpoints" as bp;
+@use "./spacing" as spacing;
+
+.header {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+
+  h2 {
+    margin: 0;
+    padding-bottom: 0;
+  }
+}
+
+.controls {
+  display: none;
+  flex-shrink: 0;
+  gap: 0.25rem;
+
+  @include bp.breakpoint(desktop) {
+    display: flex;
+  }
+}
+
+.arrow {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  line-height: 0;
+  padding: 0.25rem;
+  place-items: center;
+
+  svg {
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
+
+  &:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+.reports {
+  display: grid;
+  gap: spacing.$section-gap;
+  grid-auto-columns: calc((100% - #{spacing.$section-gap}) / 2);
+  grid-auto-flow: column;
+
+  @include bp.breakpoint(mobile, max) {
+    gap: spacing.$section-gap-mobile;
+    grid-auto-columns: auto;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+  }
+}
+
+.scrollable {
+  @include bp.breakpoint(desktop) {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > * {
+      scroll-snap-align: start;
+    }
+  }
+}

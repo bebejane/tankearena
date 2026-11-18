@@ -1,0 +1,70 @@
+@use "./breakpoints" as bp;
+
+// Matches the rem size at 1440px, scales with the viewport from 1280px, and stops at the content max.
+@function fluid-type($size) {
+  @return calc(#{$size} * min(100vw, #{bp.width(content-max)}) / #{bp.width(large-desktop)});
+}
+
+body {
+  font-family: "TAK", sans-serif;
+  font-size: 1.25rem;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+
+  @include bp.breakpoint(mobile, max) {
+    font-size: 1rem;
+  }
+
+  @include bp.breakpoint(fluid) {
+    font-size: fluid-type(1.25rem);
+  }
+}
+
+p {
+  margin: 0;
+}
+
+h3 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.small {
+  font-size: 0.875rem;
+  line-height: 1.4;
+
+  @include bp.breakpoint(desktop) {
+    font-size: 1rem;
+  }
+
+  @include bp.breakpoint(fluid) {
+    font-size: fluid-type(1.125rem);
+  }
+}
+
+.mini {
+  font-size: 0.75rem;
+  line-height: 1.3;
+
+  @include bp.breakpoint(desktop) {
+    font-size: 0.875rem;
+  }
+
+  @include bp.breakpoint(fluid) {
+    font-size: fluid-type(1rem);
+  }
+}
+
+.intro {
+  font-size: 1.25rem;
+  line-height: 1.4;
+
+  @include bp.breakpoint(desktop) {
+    font-size: 1.625rem;
+    //line-height: 1.5;
+  }
+
+  @include bp.breakpoint(fluid) {
+    font-size: fluid-type(1.625rem);
+  }
+}

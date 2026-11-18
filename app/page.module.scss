@@ -1,0 +1,229 @@
+@use "./breakpoints" as bp;
+@use "./colors" as colors;
+@use "./spacing" as spacing;
+
+.page {
+  padding-top: 6.5rem;
+
+  @include bp.breakpoint(mobile, max) {
+    padding-top: 7rem;
+  }
+
+  h1 {
+    display: none;
+  }
+}
+
+.footer {
+  align-items: center;
+  background-color: colors.$color-white;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  @include bp.content-padding;
+  padding-block: spacing.$big-space 1.5rem;
+  @include bp.breakpoint(mobile, max) {
+    padding-block: 1rem;
+  }
+}
+
+.copyright {
+  grid-column: 1;
+}
+
+.footerLogo {
+  grid-column: 2;
+  height: 5.28rem;
+  object-fit: contain;
+  width: 12.87rem;
+
+  @include bp.breakpoint(mobile, max) {
+    height: 4.224rem;
+    width: 10.296rem;
+  }
+}
+
+.section {
+  align-items: start;
+  display: grid;
+  gap: spacing.$section-gap;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @include bp.content-padding;
+  padding-block: spacing.$big-space;
+  @include bp.breakpoint(mobile, max) {
+    padding-block: 2rem;
+  }
+  position: relative;
+  scroll-margin-top: 7.5rem;
+
+  &:nth-of-type(even) {
+    background-color: colors.$color-light-gray;
+  }
+
+  @include bp.breakpoint(mobile, max) {
+    gap: spacing.$section-gap-mobile;
+    grid-template-columns: 1fr;
+  }
+}
+
+.start {
+  align-items: center;
+
+  .imageColumn,
+  .textColumn {
+    justify-self: center;
+  }
+
+  .textColumn {
+    text-align: left;
+  }
+
+  :global(.intro) {
+    p:first-of-type {
+      font-weight: 500;
+    }
+
+    p:nth-of-type(2) {
+      text-indent: 2rem;
+    }
+  }
+}
+
+.about {
+  @include bp.breakpoint(mobile, max) {
+    .aboutImageColumn {
+      display: none;
+    }
+  }
+}
+
+.contact {
+  margin-top: 3rem;
+  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-bottom: 3rem;
+
+  .imageColumn {
+    grid-column: 1;
+    justify-self: center;
+  }
+
+  .contactContent {
+    grid-column: 2;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  a {
+    color: colors.$color-black;
+  }
+
+  @include bp.breakpoint(mobile, max) {
+    grid-template-columns: 1fr;
+
+    h2,
+    .imageColumn,
+    .contactContent {
+      grid-column: 1;
+    }
+  }
+}
+
+.anchorSection {
+  @include bp.content-padding;
+  padding-block: spacing.$big-space;
+  position: relative;
+  scroll-margin-top: 7.5rem;
+  padding-bottom: 5rem;
+  @include bp.breakpoint(mobile, max) {
+    padding-block: 2rem;
+  }
+
+  &:nth-of-type(even) {
+    background-color: colors.$color-light-gray;
+  }
+}
+
+.imageColumn {
+  align-self: stretch;
+  min-width: 0;
+}
+
+.aboutImageColumn {
+  padding: 2rem;
+
+  @include bp.breakpoint(mobile, max) {
+    padding: 1rem;
+  }
+}
+
+.image {
+  height: auto;
+  max-width: 100%;
+  position: sticky;
+  top: 8rem;
+  width: 100%;
+
+  @include bp.breakpoint(mobile, max) {
+    position: static;
+  }
+}
+
+.contactImage {
+  display: block;
+  filter: grayscale(100%);
+  height: auto;
+  margin-inline: auto;
+  max-width: 65%;
+  width: 65%;
+}
+
+.textColumn {
+  min-width: 0;
+}
+
+.contactText {
+  line-height: 1.35;
+}
+
+.aboutTitle {
+  background-color: colors.$color-white;
+  padding-block: 1.5rem;
+  position: sticky;
+  top: 6.5rem;
+  z-index: 11;
+
+  @include bp.breakpoint(mobile, max) {
+    padding-bottom: 0rem;
+  }
+
+  @include bp.breakpoint(compact-header, max) {
+    top: 9rem;
+  }
+
+  @include bp.breakpoint(mobile, max) {
+    position: static;
+  }
+}
+
+.aboutText {
+  line-height: 1.35;
+
+  h3 {
+    color: colors.$color-green;
+  }
+
+  a {
+    color: colors.$color-green;
+  }
+
+  p {
+    text-indent: 1rem;
+  }
+
+  h3 + p,
+  li p {
+    text-indent: 0;
+  }
+}

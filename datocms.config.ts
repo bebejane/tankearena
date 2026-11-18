@@ -3,13 +3,16 @@ import { AllPostsDocument } from "@/graphql";
 import {
   DatoCmsConfig,
   getUploadReferenceRoutes,
-  getItemReferenceRoutes,
 } from "next-dato-utils/config";
 import { MetadataRoute } from "next";
 
 export default {
   routes: {
-    start: async (record, locale) => [`/${locale}`],
+    start: async () => [`/`],
+    about: async () => [`/`],
+    contact: async () => [`/`],
+    report: async () => [`/`],
+    event: async () => [`/`],
     upload: async (record) => getUploadReferenceRoutes(record.id),
   },
   sitemap: async () => {

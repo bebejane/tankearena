@@ -1,5 +1,4 @@
 import { NextConfig } from "next";
-import createNextIntlPlugin from "next-intl/plugin";
 import path from "path";
 
 const nextConfig: NextConfig = {
@@ -19,10 +18,6 @@ const nextConfig: NextConfig = {
     root: path.join(__dirname, ".."),
     resolveAlias: {
       "datocms.config": "./datocms.config.ts",
-      "next-dato-utils/*":
-        process.env.NODE_ENV === "development"
-          ? "../next-dato-utils/*"
-          : "next-dato-utils/*",
     },
   },
   webpack: (config) => {
@@ -35,15 +30,15 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      // {
-      //   source: "/:path*",
-      //   headers: [
-      //     {
-      //       key: "Content-Security-Policy",
-      //       value: `frame-ancestors 'self' https://plugins-cdn.datocms.com/ ${process.env.NEXT_PUBLIC_DATOCMS_BASE_EDITING_URL} ${process.env.NEXT_PUBLIC_SITE_URL}`,
-      //     },
-      //   ],
-      // },
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: `frame-ancestors 'self' https://plugins-cdn.datocms.com/ ${process.env.NEXT_PUBLIC_DATOCMS_BASE_EDITING_URL} ${process.env.NEXT_PUBLIC_SITE_URL}`,
+          },
+        ],
+      },
       {
         source: "/api/web-previews",
         headers: [
