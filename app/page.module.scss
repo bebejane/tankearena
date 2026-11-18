@@ -67,6 +67,7 @@
 
 .start {
   align-items: center;
+  margin-top: 1rem;
 
   .imageColumn,
   .textColumn {
@@ -77,18 +78,32 @@
     text-align: left;
   }
 
+  @include bp.breakpoint(desktop) {
+    .imageColumn,
+    .textColumn {
+      padding-right: 3rem;
+    }
+  }
+
   :global(.intro) {
     p:first-of-type {
+      color: colors.$color-green;
+      font-size: calc(1em + 0.1rem);
       font-weight: 500;
-    }
+      margin-bottom: 0.75em;
 
-    p:nth-of-type(2) {
-      text-indent: 2rem;
+      em {
+        font-style: normal;
+      }
     }
   }
 }
 
 .about {
+  @include bp.breakpoint(desktop) {
+    column-gap: clamp(4rem, 6vw, 6rem);
+  }
+
   @include bp.breakpoint(mobile, max) {
     .aboutImageColumn {
       display: none;
@@ -209,6 +224,10 @@
 
 .aboutText {
   line-height: 1.35;
+
+  ul li::marker {
+    color: colors.$color-green;
+  }
 
   h3 {
     color: colors.$color-green;

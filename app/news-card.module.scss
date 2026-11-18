@@ -3,6 +3,7 @@
 @use "./spacing" as spacing;
 
 .card {
+  align-self: start;
   display: grid;
   gap: spacing.$section-gap-mobile;
   grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
@@ -32,21 +33,16 @@
 }
 
 .image {
+  aspect-ratio: 3 / 2;
   display: block;
   height: auto;
-  max-width: 100%;
+  object-fit: cover;
   width: 100%;
-
-  @include bp.breakpoint(mobile, max) {
-    aspect-ratio: 3 / 2;
-    height: auto;
-    object-fit: cover;
-  }
 }
 
 .imageColumn {
   align-self: start;
-  background-color: colors.$color-green;
+  background-color: colors.$color-blue;
   min-width: 0;
   padding: 0.75rem;
 }
@@ -80,10 +76,9 @@
 }
 
 .link {
+  align-self: flex-start;
+  font-weight: 500;
   margin-top: auto;
+  padding-top: 0.75rem;
   text-decoration: none;
-
-  @include bp.breakpoint(mobile, max) {
-    padding-top: 0.75rem;
-  }
 }

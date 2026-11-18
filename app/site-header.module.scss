@@ -75,7 +75,7 @@
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  transition: font-style 150ms ease;
+  transition: color 150ms ease;
 
   &:nth-child(1) {
     width: 4.5rem;
@@ -103,11 +103,7 @@
 }
 
 .active {
-  font-style: italic;
-}
-
-a:hover {
-  font-style: italic;
+  color: colors.$color-green;
 }
 
 .secondaryNavigation {

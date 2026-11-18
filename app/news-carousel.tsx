@@ -109,7 +109,7 @@ function Arrow({ direction }: { direction: "back" | "forward" }) {
         d={direction === "back" ? "M19 7 L10 16 L19 25" : "M13 7 L22 16 L13 25"}
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="2.25"
       />
     </svg>
   );

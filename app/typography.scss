@@ -27,6 +27,7 @@ p {
 h3 {
   margin-top: 1em;
   margin-bottom: 0.5em;
+  font-size: 1.5rem;
 }
 
 .small {
@@ -60,11 +61,11 @@ h3 {
   line-height: 1.4;
 
   @include bp.breakpoint(desktop) {
-    font-size: 1.625rem;
+    font-size: 1.425rem;
     //line-height: 1.5;
   }
 
   @include bp.breakpoint(fluid) {
-    font-size: fluid-type(1.625rem);
+    font-size: fluid-type(1.425rem);
   }
 }

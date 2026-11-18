@@ -66,9 +66,9 @@ export default function SiteHeader() {
         />
       </a>
       <div className={styles.secondaryNavigation}>
-        <span className="small">Nyhetsbrev</span>
+        <span className="small"><a href="https://confirmsubscription.com/h/y/8FFD88D22477A41A" target="_new">Nyhetsbrev</a></span>
         <span className="small"><a href="https://www.instagram.com/tankearenaforkultur/" target="_new"> Instagram</a></span>
       </div>
-    </header>
+    </header >
   );
 }

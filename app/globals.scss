@@ -1,4 +1,5 @@
 @use "./breakpoints" as bp;
+@use "./colors" as colors;
 @use "./typography";
 
 :root {
@@ -72,4 +73,9 @@ h6 {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+a:any-link:hover,
+a:any-link:focus-visible {
+  color: colors.$color-green;
 }
