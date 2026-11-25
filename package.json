@@ -13,7 +13,8 @@
     "next-dato-utils": "github:bebejane/next-dato-utils",
     "react": "19.2.3",
     "react-datocms": "^8.1.2",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
