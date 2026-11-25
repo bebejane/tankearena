@@ -1,17 +1,65 @@
-query Start($locale: SiteLocale) {
-	start(locale: $locale) {
-		...StartFragment
+query Start {
+	start {
+		title
+		image {
+			url
+			alt
+			width
+			height
+		}
+		text {
+			value
+		}
 	}
-}
-
-fragment StartFragment on StartRecord {
-	headline
-	content {
-		blocks
-		links
-		value
+	about {
+		title
+		image {
+			url
+			alt
+			width
+			height
+		}
+		text {
+			value
+		}
 	}
-	posts {
-		...PostLightFragment
+	contact {
+		title
+		image {
+			url
+			alt
+			width
+			height
+		}
+		text {
+			value
+		}
+	}
+	allReports {
+		title
+		image {
+			url
+			alt
+			width
+			height
+		}
+		intro {
+			value
+		}
+		url
+	}
+	allEvents {
+		title
+		image {
+			url
+			alt
+			width
+			height
+		}
+		intro {
+			value
+		}
+		url
+		endDate
 	}
 }

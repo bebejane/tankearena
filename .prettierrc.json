@@ -1,4 +1,0 @@
-{
-  "cssDeclarationSorterOrder": "frakto",
-  "plugins": ["prettier-plugin-css-order"]
-}
