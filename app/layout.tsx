@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
 import "./globals.scss";
+import type { Metadata } from "next";
+import { DraftModeContentLink } from 'next-dato-utils/components';
 
 export const metadata: Metadata = {
   title: "TankeArena för Kultur",
@@ -11,6 +12,7 @@ export default function RootLayout({
   return (
     <html lang="sv">
       <body>{children}</body>
+      <DraftModeContentLink />
     </html>
   );
 }
